@@ -18,7 +18,7 @@ export default async (req, res) => {
     res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
     res.setHeader('Cache-Control', 'public, max-age=86400');
 
-    // For Discord webhooks, we always proxy the file
+    // Proxy the file (Discord will download it)
     const response = await axios.get(assetUrl, {
       responseType: 'arraybuffer',
       headers: { 'User-Agent': 'Roblox-Discord-Proxy/1.0' }
